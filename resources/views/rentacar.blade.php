@@ -17,27 +17,27 @@
     @csrf
 <div class="form-group">
     <label for="">Vehicle Type</label>
-    <select name="option1" class="selectDD form-control" style="width: 35%;" id="vehiclesel" size="1">
+    <select name="option1" class="selectDD form-control" style="width: 35%;"  id="vehiclesel" size="1" required>
         <option value="" selected="selected">Select Vehicle Type</option>
     </select>
 </div>
     <div class="form-group mb-2">
         <label for="">Vehicle Brand</label>
-        <select name="option2" class="selectDD form-control" style="width: 35%;" id="brandsel" size="1">
+        <select name="option2" class="selectDD form-control" style="width: 35%;" id="brandsel" size="1" required>
             <option value="" selected="selected">Please select Car Brand</option>
         </select>
        
      </div>  
     <div class="form-group mb-2">
         <label for="">Vehicle Model</label>
-        <select name="option3" class="selectDD form-control" style="width: 35%;" id="modelsel" size="1">
+        <select name="option3" class="selectDD form-control" style="width: 35%;" id="modelsel" size="1" required>
             <option value=""  selected="selected">Please select Car Model</option>
         </select>
         
      </div>  
    <div class="form-group mb-2">
     <label for="">Rent For No.of Days</label>
-    <input type="number" class="form-control" name="rentnoofdays" id="noofrentdays">
+    <input type="number" class="form-control" name="rentnoofdays" id="noofrentdays" required>
    </div>
 
    <input type="hidden" name="" id="rentdays">

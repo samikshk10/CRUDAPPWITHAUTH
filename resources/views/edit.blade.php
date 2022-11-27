@@ -15,17 +15,17 @@
    <div class="container mt-2" style="box-shadow: 7px 7px 14px #828282,-7px -7px 14px #fff;padding: 30px">
    <form action="{{ route('updateCar') }}" method="post">
     @csrf
-    <input type="hidden" name="id" value="{{ $data->id }}">
+    <input type="hidden" name="id" value="{{ $data->id }}" >
 <div class="form-group">
     <label for="">Vehicle Type</label>
-    <select name="option1" class="selectDD form-control" style="width: 35%;" id="vehiclesel" size="1">
+    <select name="option1" class="selectDD form-control" style="width: 35%;" id="vehiclesel" size="1" required>
         
         <option value="{{ $data->vehicletype }}"  selected style="display:none"> {{ $data->vehicletype }}</option>
     </select>
 </div>
     <div class="form-group mb-2">
         <label for="">Vehicle Brand</label>
-        <select name="option2" class="selectDD form-control" style="width: 35%;" id="brandsel" size="1">
+        <select name="option2" class="selectDD form-control" style="width: 35%;" id="brandsel" size="1" required>
             <option value="{{ $data->vehiclebrand }}"  selected style="display:none"> {{ $data->vehiclebrand }}</option>
 
             {{--  <option value="" selected="selected">Please select Car Brand</option>  --}}
@@ -34,7 +34,7 @@
      </div>  
     <div class="form-group mb-2">
         <label for="">Vehicle Model</label>
-        <select name="option3" class="selectDD form-control" style="width: 35%;" id="modelsel" size="1">
+        <select name="option3" class="selectDD form-control" style="width: 35%;" id="modelsel" size="1" required>
             <option value="{{ $data->vehiclemodel }}"  selected style="display:none"> {{ $data->vehiclemodel }}</option>
 
             {{--  <option value=""  selected="selected">Please select Car Model</option>  --}}
@@ -43,7 +43,7 @@
      </div>  
    <div class="form-group mb-2">
     <label for="">Rent For No.of Days</label>
-    <input type="number" value="{{ $data->rentnoofdays }}" class="form-control" name="rentnoofdays" id="noofrentdays">
+    <input type="number" value="{{ $data->rentnoofdays }}" class="form-control" name="rentnoofdays" id="noofrentdays" required>
    </div>
 
    <input type="hidden" name="" id="rentdays">
