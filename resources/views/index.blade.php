@@ -3,16 +3,46 @@
 
 @section('content')
 
+<style>
+    .reset-btn{
+        background: none;
+        background-color: #0d6efd;
+        border: none;
+        border-radius: 50%;
+        padding: 11px;
+        color: white;
+        opacity: .8;
+     
+    }
 
 
+    .reset-btn:hover{
 
-<h1 class="text-center">Vehicle Rental Application</h1>
+        opacity: 1;
+    
+
+    }
+</style>
+
+
+{{--  <h1 class="text-center">Vehicle Rental Application</h1>  --}}
 <div class="container">
     <div class="cards">
-            <h2 class="title text-center"><u> Your Reservation</u></h2>
+            <h1 class="title text-center"><u> Your Reservation</u></h1>
     </div>
 
+    <div class="form-group d-flex" style="justify-content: space-between">
    <a href="{{ route('rentacarbtn') }}"> <button class="btn btn-success mb-3 btns"><span class="addicon">+</span> Rent A Car</button></a>
+   <form action="" style="width: 400px "> 
+    <div class="formm d-flex" style="gap:10px"> 
+          <input type="search" value="{{ $search }}" name="search" class ="form-control mb-2" placeholder="Search By Brand ">
+   <button class="btn btn-primary mb-2">Search</button>
+  <a href="{{ url('/')}}"> <button class="fa fa-refresh reset-btn "  type="button" title="Reset"></button></a>
+    </div>  
+
+</form>
+
+</div>
 
     <table class="table">
     <tr style="background-color: green; color: white">
@@ -22,6 +52,7 @@
         <th>Vehicle Model</th>
         <th>Email</th>
         <th>Rented Date</th>
+        <th>Rent per day</th>
         <th>Rent Days</th>
         <th>Total Rent</th>
         <th colspan="2">Action</th>
@@ -39,8 +70,8 @@
                     <td>{{ $value->vehiclebrand }}</td>
                     <td>{{ $value->vehiclemodel }}</td>
                     <td>{{ $value->email }}</td>
-
                     <td>{{ $value->created_at }}</td>
+                    <td>{{ $value->totalrent / $value->rentnoofdays }}</td>
                     <td>{{ $value->rentnoofdays }}</td>
                     <td>{{ $value->totalrent }}</td>
                     

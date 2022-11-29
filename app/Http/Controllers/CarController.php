@@ -27,13 +27,14 @@ class CarController extends Controller
 
     function deleteitems(car $car, $id)
     {
-        $row = $car::destroy($id);
+        $row = car::where('id', $id)->where('email', auth()->user()->email)->first();
+        $row->delete();
         return back();
     }
 
     public function edititems($id)
     {
-        $data = car::find($id);
+        $data = car::where('id', $id)->where('email', auth()->user()->email)->first();
         return view('edit', compact('data'));
     }
 

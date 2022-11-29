@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class homeController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
+        $search = $request['search'] ?? "";
+        if ($search != "") {
+            $value = car::where('vehiclebrand', 'LIKE', "%$search%")->where('email', Auth::user()->email)->get();
+        } else {
 
-        $value = car::where('email', Auth::user()->email)->get();
-        return view('index', compact('value'));
+            $value = car::where('email', Auth::user()->email)->get();
+        }
+        return view('index', compact('value', 'search'));
+
 
         // return view('index', ['data' => car::where('email', Auth::user()->email)->first()]);
         // return  car::select('email')->get();

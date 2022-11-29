@@ -18,8 +18,8 @@ use App\Http\Controllers\CarController;
 |
 */
 
-Route::get('/rentacar', [homeController::class, 'rentacar'])->name('rentacarbtn');
-Route::post('/rentacar', [CarController::class, 'rentacar'])->name('renting');
+Route::get('/rentacar', [homeController::class, 'rentacar'])->name('rentacarbtn')->middleware(['auth']);
+Route::post('/rentacar', [CarController::class, 'rentacar'])->name('renting')->middleware(['auth']);
 
 Route::get('/', [homeController::class, 'index'])->name('dashboard')->middleware(['auth']);
 Route::get('/login', [homeController::class, 'login'])->name('login');
@@ -33,5 +33,5 @@ Route::get('/logout', [MainController::class, 'logout'])->name('logout');
 
 Route::get('delete/{id}', [CarController::class, 'deleteitems']);
 
-Route::get('edit/{id}', [CarController::class, 'edititems']);
-Route::post('/edit', [CarController::class, 'updateitems'])->name('updateCar');
+Route::get('edit/{id}', [CarController::class, 'edititems'])->middleware(['auth']);
+Route::post('/edit', [CarController::class, 'updateitems'])->name('updateCar')->middleware(['auth']);
