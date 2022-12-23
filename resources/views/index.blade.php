@@ -15,7 +15,6 @@
      
     }
 
-
     .reset-btn:hover{
 
         opacity: 1;
@@ -35,13 +34,11 @@
    <a href="{{ route('rentacarbtn') }}"> <button class="btn btn-success mb-3 btns"><span class="addicon">+</span> Rent A Car</button></a>
    <form action="" style="width: 400px "> 
     <div class="formm d-flex" style="gap:10px"> 
-          <input type="search" value="{{ $search }}" name="search" class ="form-control mb-2" placeholder="Search By Brand ">
-   <button class="btn btn-primary mb-2">Search</button>
+          <input type="search" id="search" value="{{ $search }}" name="search" class ="form-control mb-2" placeholder="Search By Brand ">
+   <button class="btn btn-primary mb-2" id="searchbtn">Search</button>
   <a href="{{ url('/')}}"> <button class="fa fa-refresh reset-btn "  type="button" title="Reset"></button></a>
     </div>  
-
 </form>
-
 </div>
 
     <table class="table">
@@ -82,11 +79,12 @@
                 @endforeach
                 @endif
    
-    
+ 
 
     </table>
 
 </div>
+
 
 @endsection  
 
